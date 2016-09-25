@@ -40,7 +40,7 @@ public class HomePageActivity extends AppCompatActivity {
         manageExpensesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomePageActivity.this, ExpenseImageActivity.class);
+                Intent intent = new Intent(HomePageActivity.this, ManageExpenseActivity.class);
                 startActivity(intent);
             }
         });

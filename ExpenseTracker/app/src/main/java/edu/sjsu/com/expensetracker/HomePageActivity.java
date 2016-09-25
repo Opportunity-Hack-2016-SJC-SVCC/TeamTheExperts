@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.FirebaseApp;
+
 public class HomePageActivity extends AppCompatActivity {
 
     private Button addIncomeButton;
@@ -20,6 +22,8 @@ public class HomePageActivity extends AppCompatActivity {
         addIncomeButton = (Button) findViewById(R.id.add_income_button);
         addExpenseButton = (Button) findViewById(R.id.add_expense_button);
         manageExpensesButton = (Button) findViewById(R.id.manage_expenses_button);
+
+        FirebaseApp.initializeApp(this);
 
         addIncomeButton.setOnClickListener(new View.OnClickListener() {
             @Override

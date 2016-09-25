@@ -26,27 +26,41 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/text_date"
-                android:textSize="20sp"
+                android:textSize="20dp"
                 android:text="date"
                 />
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
                 android:text="expense"
-                android:textSize="20sp"
+                android:textSize="20dp"
                 android:id="@+id/text_expense"
 
                 />
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
                 <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:id="@+id/necessary_button"
+                    android:layout_marginRight="4dp"
+                    android:layout_weight="1"
+                    android:background="#27ae60"
                     android:text="Necessary"/>
+
                 <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:id="@+id/unnecessary_button"
+                    android:layout_marginLeft="4dp"
+                    android:background="#c0392b"
+                    android:layout_weight="1"
                     android:text="Un-Necessary"/>
             </LinearLayout>
 

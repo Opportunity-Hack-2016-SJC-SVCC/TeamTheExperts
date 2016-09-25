@@ -18,14 +18,18 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDa0SOxNBn_wq-Eitr9BdyYMqSKGqaSOgo" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ParseImageActivity">
+
+        </activity>
+        <activity android:name=".HomePageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ParseImageActivity"></activity>
+        <activity android:name=".ExpenseImageActivity"></activity>
     </application>
 
 </manifest>

@@ -1,14 +1,19 @@
 package edu.sjsu.com.expensetracker;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Point;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -43,6 +48,8 @@ public class ParseImageActivity extends AppCompatActivity {
 
     private Button saveExpenseButton;
 
+    float alreadySpent = 753;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +76,46 @@ public class ParseImageActivity extends AppCompatActivity {
                 map.put("products", recognizedTextArrayList);
 
                 mDatabase.child("users").child("apoorv9990").child("expenses").child(""+System.currentTimeMillis()).setValue(map);
+
+                float total = 0;
+
+                for(String product : recognizedTextArrayList)
+                {
+                    String[] splitText = product.split(" ");
+                    total += Float.parseFloat(splitText[splitText.length - 1]);
+                }
+
+                final Dialog dialog = new Dialog(ParseImageActivity.this);
+
+                View successView = ParseImageActivity.this.getLayoutInflater().inflate(R.layout.expense_exceeded_dialog, null);
+
+                LinearLayout.LayoutParams successViewLayoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+
+                dialog.setContentView(successView, successViewLayoutParams);
+
+                Point size = new Point();
+                getWindowManager().getDefaultDisplay().getSize(size);
+
+                WindowManager.LayoutParams lp=dialog.getWindow().getAttributes();
+                lp.width= (int) (size.x - (size.x * 0.1));
+
+                TextView dialogMessage = (TextView) dialog.findViewById(R.id.dialog_message);
+                dialogMessage.setText("You have spent $52.47 this month. Almost 77% of your target expense. Please be careful!");
+
+                Button okButton = (Button) dialog.findViewById(R.id.ok_button);
+                okButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+
+                        Intent intent = new Intent(ParseImageActivity.this, HomePageActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                    }
+                });
+
+                dialog.show();
+
             }
         });
     }

@@ -36,6 +36,7 @@
                 android:layout_marginTop="8dp"
                 android:text="expense"
                 android:textSize="20dp"
+                android:textColor="@android:color/black"
                 android:id="@+id/text_expense"
 
                 />
@@ -52,6 +53,7 @@
                     android:layout_marginRight="4dp"
                     android:layout_weight="1"
                     android:background="#27ae60"
+                    android:visibility="gone"
                     android:text="Necessary"/>
 
                 <Button
@@ -61,7 +63,8 @@
                     android:layout_marginLeft="4dp"
                     android:background="#c0392b"
                     android:layout_weight="1"
-                    android:text="Un-Necessary"/>
+                    android:textColor="@android:color/white"
+                    android:text="Not Necessary"/>
             </LinearLayout>
 
         </LinearLayout>

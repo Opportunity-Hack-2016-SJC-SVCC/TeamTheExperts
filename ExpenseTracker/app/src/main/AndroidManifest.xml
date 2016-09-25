@@ -20,16 +20,20 @@
 
         <activity android:name=".MainActivity" />
         <activity android:name=".ParseImageActivity" />
-        <activity android:name=".HomePageActivity">
+        <activity
+            android:name=".HomePageActivity"
+            android:launchMode="singleTop"></activity>
+        <activity android:name=".ExpenseImageActivity" />
+        <activity android:name=".ManageExpenseActivity" />
+        <activity android:name=".ExpensesGraphActivity" />
+        <activity android:name=".TargetActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ExpenseImageActivity" />
-        <activity android:name=".ManageExpenseActivity" />
-        <activity android:name=".ExpensesGraphActivity"></activity>
+        <activity android:name=".IncomeImageActivity"></activity>
     </application>
 
 </manifest>

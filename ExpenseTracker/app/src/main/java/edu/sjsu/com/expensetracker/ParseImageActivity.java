@@ -17,12 +17,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.googlecode.tesseract.android.TessBaseAPI;
 
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 
 public class ParseImageActivity extends AppCompatActivity {
 
@@ -43,8 +48,6 @@ public class ParseImageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parse_image);
 
-        FirebaseApp.initializeApp(this);
-
         parsedListView = (ListView) findViewById(R.id.parsed_image_list);
 
         saveExpenseButton = (Button) findViewById(R.id.save_expense_button);
@@ -60,7 +63,12 @@ public class ParseImageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mDatabase = FirebaseDatabase.getInstance().getReference();
-                mDatabase.child("users").child("apoorv9990").child("expense").child(""+System.currentTimeMillis()).setValue(recognizedTextArrayList);
+
+                HashMap<String, Object> map = new HashMap<>();
+                map.put("necessary", true);
+                map.put("products", recognizedTextArrayList);
+
+                mDatabase.child("users").child("apoorv9990").child("expenses").child(""+System.currentTimeMillis()).setValue(map);
             }
         });
     }

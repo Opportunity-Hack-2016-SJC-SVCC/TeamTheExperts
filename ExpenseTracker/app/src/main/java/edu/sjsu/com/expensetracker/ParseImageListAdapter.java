@@ -53,6 +53,7 @@ public class ParseImageListAdapter extends ArrayAdapter<String> {
             int position = (int)v.getTag();
 
             imageList.remove(position);
+//            ((ParseImageActivity)mContext).deleteProductAt(position);
             notifyDataSetChanged();
         }
     };

@@ -19,7 +19,7 @@
             android:value="AIzaSyDa0SOxNBn_wq-Eitr9BdyYMqSKGqaSOgo" />
 
         <activity android:name=".MainActivity" />
-        <activity android:name=".ParseImageActivity"></activity>
+        <activity android:name=".ParseImageActivity" />
         <activity android:name=".HomePageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +28,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ExpenseImageActivity" />
-        <activity android:name=".ManageExpenseActivity"></activity>
+        <activity android:name=".ManageExpenseActivity" />
+        <activity android:name=".ExpensesGraphActivity"></activity>
     </application>
 
 </manifest>
